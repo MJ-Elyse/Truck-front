@@ -1,0 +1,182 @@
+@use "../../styles/variables.scss" as *;
+
+.trip-configuration-container {
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
+    min-height: 100vh;  
+    background-color: $background;
+    color: $primary-text-color;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        pointer-events: none;
+        z-index: 0;
+        width: 200%;
+        height: 200%;
+        top: -50%;
+        left: -50%;
+        background: radial-gradient(circle, rgb(255, 255, 255) 1.5px, transparent 1.5px);
+        background-size: 40px 40px;
+        animation: animateDots 5s linear infinite;
+        opacity: 0.3;
+        
+    }
+
+    @keyframes animateDots {
+        0% {
+            transform: translate(0, 0);
+        }
+        100% {
+            transform: translate(40px, 40px);
+        }
+    }
+    
+    .nav-container {
+        position: relative;
+        z-index: 2;
+        background-color: $solid-background;
+        box-shadow: #00BCD4 0px 1px 4px;
+    }
+
+    .trip-configuration-content {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        @include flex-center;
+        flex-direction: column;
+        margin-top: 2rem;
+        @include padding-left-right;
+
+        .title {
+            margin-top: 2rem;
+            font-size: 1.7rem;
+            font-weight: bold;
+            color: $primary-text-color;
+            position: relative;
+            letter-spacing: 1px;
+
+            span {
+                color: $secondary-text-links;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: -0.3rem;
+                width: 100%;
+                height: 3px;
+                background: linear-gradient(90deg, $secondary-text-links, $borderfocus-rings);
+                box-shadow: 0 0 8px $borderfocus-rings;
+                border-radius: 2px;
+                animation: underlinePulse 6s infinite ease-in-out;
+            }
+        }
+
+        @keyframes underlinePulse {
+            0%, 100% {
+                transform: scaleX(1);
+                opacity: 0.6;
+            }
+            50% {
+                transform: scaleX(1.1);
+                opacity: 1;
+            }
+        }
+
+
+        .action-container {
+            margin-top: 4rem;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.6rem;
+
+            .map-point-marker {
+                @include flex-center;
+                flex-wrap: wrap;
+                gap: 1rem;
+
+                .action {
+                    color: $primary-text-color;
+                    border-radius: $button-radius;
+                    cursor: pointer;
+                    background-color: $solid-background;
+                    height: 3rem;
+                }
+
+                .fill {
+                    border: 2px solid $secondary-text-links;
+                }
+            }
+
+            .planned-start-date {
+                @include flex-center;
+                gap: 1rem;
+                height: 3rem;
+                
+                .MuiTextField-root {
+                    position: relative;
+                    background-color: $solid-background;
+                    height: 3rem;
+
+                    .MuiOutlinedInput-root {
+                        fieldset {
+                            border: 2px solid $secondary-text-links;
+                        }
+
+                        input {
+                            color: $primary-text-color;
+                        }
+                    }
+
+                    .MuiInputLabel-root {
+                        color: $borderfocus-rings;
+                        background-color: $background;
+                        padding: 0 0.25rem;
+                    }
+                }
+
+            }
+
+            .computes-btn {
+                @include flex-center;
+                .compute {
+                    height: 2.7rem;
+                }    
+            }
+        }
+
+        .map {
+            margin-top: 2rem;
+            width: 100%;
+            height: 25rem;
+            color: black;
+            .leaflet-container {
+                border-radius: 10px;
+            }
+        }
+    }
+
+    .log-trip-container {
+        margin-top: 5rem;
+        @include flex-center;
+        max-width: 100%;
+        overflow-x: hidden;
+
+        .log-trip-config {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 5rem;
+            max-width: 90%;
+            overflow-x: auto;
+        }
+    }
+}

@@ -1,0 +1,105 @@
+@use "../../styles/variables.scss" as *;
+
+$height: 3rem;
+$font-size: 1rem;
+@mixin gap-menu-item {
+    gap: 3rem;
+    @media (max-width: 960px) {
+        gap: 1rem;
+    }
+    @media (max-width: 730px) {
+        gap: .5rem;
+    }
+}
+@mixin icon_size {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 100%;
+    height: $height;
+    @include flex-center;
+    background-color: $background;
+    font-size: $font-size;
+    color: $primary-text-color;
+
+    .nav-content {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        height: 100%;
+        width: 100%;
+        @include padding-left-right;
+
+        .nav-logo {
+            @include flex-center;
+            justify-content: flex-start;
+        }
+
+        .nav-menu {
+            @include flex-center;
+            @include gap-menu-item;
+
+            span {
+                cursor: pointer;
+                position: relative;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 120%;
+                    left: 50%;
+                    height: 3px;
+                    width: 0;
+                    background-color: #12A594;
+                    transition: .2s ease-in-out;
+                }
+
+                &:hover::after {
+                    width: 100%;
+                    left: 0%;
+                }
+            }
+        }
+
+        .user-action {
+            @include flex-center;
+            justify-content: flex-end;
+            gap: 2rem;
+
+            .icon {
+                @include icon_size
+            }
+
+            .signin {
+                font-style: italic;
+            }
+
+            & > div {
+                @include flex-center;
+                cursor: pointer;
+            }
+        }
+
+        .burguer-menu {
+            display: none;
+        }
+    }
+    
+    @media (max-width: 821px) {
+        .nav-content {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .nav-menu, .user-action {
+                display: none;
+            }
+
+            .burguer-menu {
+                @include flex-center;
+            }
+        }
+    }
+}

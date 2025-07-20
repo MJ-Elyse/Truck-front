@@ -1,0 +1,80 @@
+// // color palette
+// $background: #FAFEFD;
+// $interactive-component: #E0F8F3;
+// $border-separator: #83CDC1;
+// $borderfocus-rings: #53B9AB;
+// $solid-background: #12A594;
+// $secondary-text-links: #008573;
+// $primary-text-color: #0D3D38;
+
+// // layout
+// @mixin flex-center {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+// }
+
+// @mixin padding-left-right {
+//     padding: 0 4rem;
+//     @media (max-width: 630px) {
+//         padding: 0 2rem;
+//     }
+// }
+
+// @mixin margin-left-right {
+//     margin-left: 4rem;
+//     @media (max-width: 630px) {
+//         margin-left: 2rem;
+//     }
+// }
+
+// // border-radius
+// $button-radius: 5px;
+// $interactive-component-radius: 8px;
+
+// === Nouveau thème sombre inspiré de Spotter ===
+
+// background & surfaces
+$background: #0C2B3C; // fond principal bleu nuit
+$interactive-component: #1C2B36; // fond des blocs ou sections interactives
+$solid-background: #121F28; // autre surface solide
+
+// borders & rings
+$border-separator: #275E6C;
+$borderfocus-rings: #2CD5C4; // couleur néon verte (cyan)
+
+// text colors
+$primary-text-color: #FFFFFF; // texte principal en blanc
+$secondary-text-links: #2CD5C4; // texte interactif en cyan
+
+// accents / interactions
+$accent-red: #FF3B30;
+$accent-orange: #FF8A00;
+$accent-green: #4CD964;
+$accent-pink: #EC407A;
+$accent-blue: #00BCD4;
+
+// === Layout mixins inchangés ===
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin padding-left-right {
+  padding: 0 4rem;
+  @media (max-width: 630px) {
+    padding: 0 2rem;
+  }
+}
+
+@mixin margin-left-right {
+  margin-left: 4rem;
+  @media (max-width: 630px) {
+    margin-left: 2rem;
+  }
+}
+
+// border-radius
+$button-radius: 6px;
+$interactive-component-radius: 10px;
